@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ESPuino Flash Tool</title>
+    <link rel="icon" href="assets/favicon.ico" />
+    <script type="importmap">
+{
+      "imports": {
+            "/npm/atob-lite@2.0.0/+esm": "./vendor/esptool-js/_npm/atob-lite@2.0.0.js",
+            "/npm/esptool-js@0.6.0/lib/targets/esp32.js/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/esp32.js",
+            "/npm/esptool-js@0.6.0/lib/targets/esp32c2.js/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/esp32c2.js",
+            "/npm/esptool-js@0.6.0/lib/targets/esp32c3.js/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/esp32c3.js",
+            "/npm/esptool-js@0.6.0/lib/targets/esp32c5.js/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/esp32c5.js",
+            "/npm/esptool-js@0.6.0/lib/targets/esp32c6.js/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/esp32c6.js",
+            "/npm/esptool-js@0.6.0/lib/targets/esp32c61.js/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/esp32c61.js",
+            "/npm/esptool-js@0.6.0/lib/targets/esp32h2.js/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/esp32h2.js",
+            "/npm/esptool-js@0.6.0/lib/targets/esp32p4.js/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/esp32p4.js",
+            "/npm/esptool-js@0.6.0/lib/targets/esp32s2.js/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/esp32s2.js",
+            "/npm/esptool-js@0.6.0/lib/targets/esp32s3.js/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/esp32s3.js",
+            "/npm/esptool-js@0.6.0/lib/targets/esp8266.js/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/esp8266.js",
+            "/npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32.json/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32.js",
+            "/npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32c2.json/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32c2.js",
+            "/npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32c3.json/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32c3.js",
+            "/npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32c5.json/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32c5.js",
+            "/npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32c6.json/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32c6.js",
+            "/npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32c61.json/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32c61.js",
+            "/npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32h2.json/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32h2.js",
+            "/npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32p4.json/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32p4.js",
+            "/npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32p4rc1.json/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32p4rc1.js",
+            "/npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32s2.json/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32s2.js",
+            "/npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32s3.json/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_32s3.js",
+            "/npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_8266.json/+esm": "./vendor/esptool-js/_npm/esptool-js@0.6.0/lib/targets/stub_flasher/stub_flasher_8266.js",
+            "/npm/pako@2.1.0/+esm": "./vendor/esptool-js/_npm/pako@2.1.0.js"
+      }
+}
+    </script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <span class="brand">
+        <img src="assets/logo.webp" alt="ESPuino" />
+        <span data-i18n="nav.title">ESPuino Flash Tool</span>
+      </span>
+      <span class="spacer"></span>
+      <select id="langSelect" aria-label="Language">
+        <option value="DE">Deutsch</option>
+        <option value="EN">English</option>
+        <option value="FR">Français</option>
+      </select>
+    </header>
+
+    <div class="container">
+      <!-- Browser ohne Web Serial -->
+      <div id="unsupported" class="alert alert-warn hidden">
+        <h2 data-i18n="unsupported.title">Browser nicht unterstützt</h2>
+        <p data-i18n-html="unsupported.body"></p>
+      </div>
+
+      <div id="app">
+        <p class="intro" data-i18n="intro.body"></p>
+
+        <!-- 1. Firmware -->
+        <section class="card">
+          <h2 data-i18n="fw.title">Firmware wählen</h2>
+          <div class="row">
+            <div class="field">
+              <label for="branchSelect" data-i18n="fw.branch">Branch</label>
+              <select id="branchSelect"></select>
+            </div>
+            <div class="field">
+              <label for="platformSelect" data-i18n="fw.platform">Plattform</label>
+              <select id="platformSelect"></select>
+            </div>
+          </div>
+          <div class="field" style="margin-top: 14px">
+            <label for="buildSelect" data-i18n="fw.build">Firmware-Build</label>
+            <select id="buildSelect"></select>
+            <div class="fw-info" id="buildCommit"></div>
+          </div>
+          <div class="field" style="margin-top: 14px">
+            <label for="baudSelect" data-i18n="fw.baud">USB-Geschwindigkeit</label>
+            <select id="baudSelect"></select>
+            <div class="hint" data-i18n="fw.baudHint"></div>
+          </div>
+        </section>
+
+        <!-- 2. Aktion -->
+        <section class="card">
+          <h2 data-i18n="action.title">Aktion wählen</h2>
+          <div class="actions">
+            <div class="action">
+              <span class="action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg>
+              </span>
+              <div class="action-body">
+                <div class="action-title" data-i18n="action.app">Nur App aktualisieren</div>
+                <div class="action-hint" data-i18n="action.appHint"></div>
+              </div>
+              <button class="btn btn-primary" id="btnFlashApp" data-i18n="action.app"></button>
+            </div>
+
+            <div class="action">
+              <span class="action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>
+              </span>
+              <div class="action-body">
+                <div class="action-title" data-i18n="action.full">Komplett flashen</div>
+                <div class="action-hint" data-i18n="action.fullHint"></div>
+              </div>
+              <button class="btn btn-outline" id="btnFlashFull" data-i18n="action.full"></button>
+            </div>
+
+            <div class="action">
+              <span class="action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-2.4 2.6-2.6z"/></svg>
+              </span>
+              <div class="action-body">
+                <div class="action-title" data-i18n="action.custom">Eigene Firmware</div>
+                <div class="action-hint" data-i18n="action.customHint"></div>
+              </div>
+              <button class="btn btn-outline" id="btnCustomToggle" data-i18n="action.custom"></button>
+            </div>
+
+            <div class="action">
+              <span class="action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><polyline points="7 9 10 12 7 15"/><line x1="13" y1="15" x2="16" y2="15"/></svg>
+              </span>
+              <div class="action-body">
+                <div class="action-title" data-i18n="action.console">Serielle Konsole</div>
+                <div class="action-hint" data-i18n="action.consoleHint"></div>
+              </div>
+              <button class="btn btn-outline" id="btnConsole" data-i18n="action.console"></button>
+            </div>
+
+            <div class="action danger">
+              <span class="action-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.3 3.6 1.8 18a1 1 0 0 0 .9 1.5h18.6a1 1 0 0 0 .9-1.5L13.7 3.6a1 1 0 0 0-1.7 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+              </span>
+              <div class="action-body">
+                <div class="action-title" data-i18n="action.erase">Flash löschen</div>
+                <div class="action-hint" data-i18n="action.eraseHint"></div>
+              </div>
+              <button class="btn btn-danger-outline" id="btnErase" data-i18n="action.erase"></button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Custom-Panel -->
+        <section class="card hidden" id="customPanel">
+          <h2 data-i18n="custom.title">Eigene Firmware</h2>
+          <p class="intro" data-i18n-html="custom.body"></p>
+          <div class="file-row">
+            <label data-i18n="custom.bootloader">bootloader.bin</label>
+            <input type="file" id="fileBootloader" accept=".bin" />
+            <span data-i18n="custom.offset">Offset</span>
+            <input type="text" class="offset-input" id="offBootloader" value="0x1000" />
+          </div>
+          <div class="file-row">
+            <label data-i18n="custom.partitions">partitions.bin</label>
+            <input type="file" id="filePartitions" accept=".bin" />
+            <span data-i18n="custom.offset">Offset</span>
+            <input type="text" class="offset-input" id="offPartitions" value="0x8000" />
+          </div>
+          <div class="file-row">
+            <label data-i18n="custom.bootapp0">boot_app0.bin</label>
+            <input type="file" id="fileBootApp0" accept=".bin" />
+            <span data-i18n="custom.offset">Offset</span>
+            <input type="text" class="offset-input" id="offBootApp0" value="0x9000" />
+          </div>
+          <div class="file-row">
+            <label data-i18n="custom.app">firmware.bin</label>
+            <input type="file" id="fileApp" accept=".bin" />
+            <span data-i18n="custom.offset">Offset</span>
+            <input type="text" class="offset-input" id="offApp" value="0x10000" />
+          </div>
+          <button class="btn btn-primary btn-block" id="btnFlashCustom" data-i18n="custom.flash"></button>
+        </section>
+
+        <!-- Fortschritt -->
+        <section class="card" id="progressCard">
+          <h2 data-i18n="progress.title">Fortschritt</h2>
+          <div class="progress-outer"><div class="progress-bar" id="progressBar"></div></div>
+          <div class="status" id="status" data-i18n="progress.idle"></div>
+          <div class="log" id="log"></div>
+        </section>
+
+        <!-- Konsole -->
+        <section class="card hidden" id="consolePanel">
+          <h2 data-i18n="console.title">Serielle Konsole</h2>
+          <p class="intro" data-i18n="console.hint"></p>
+          <div class="row" style="margin-bottom: 10px; gap: 8px">
+            <button class="btn btn-primary" id="btnConsoleOpen" data-i18n="console.open"></button>
+            <button class="btn btn-outline" id="btnConsoleClose" data-i18n="console.close"></button>
+            <button class="btn btn-ghost" id="btnConsoleClear" data-i18n="console.clear"></button>
+          </div>
+          <div class="console-output" id="consoleOutput"></div>
+        </section>
+      </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
