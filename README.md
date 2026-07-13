@@ -1,4 +1,4 @@
-# ESPuino Flash Tool
+# ESPuino Firmware Tool
 
 A browser-based USB flasher for [ESPuino](https://github.com/biologist79/ESPuino), the
 ESP32-based RFID audio player.
