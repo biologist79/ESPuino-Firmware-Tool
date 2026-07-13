@@ -1,4 +1,4 @@
-# ESPuino Flash Tool — Specification
+# ESPuino Firmware Tool — Specification
 
 A browser-based USB flashing tool for ESPuino. Static website, hosted on GitHub Pages, no
 backend. It serves as a **lifeline**: for beginners whose ESP32 has no firmware (or a broken
@@ -172,7 +172,7 @@ that the files are really named `bootloader.bin` / `partitions.bin` (not e.g.
 Modeled on the ESPuino web interface, but without its ballast:
 
 - **Navbar:** blue bar (`#0d6efd`, as a CSS variable), the E32 chip logo on the left
-  (`assets/logo.webp`, ~35 px) + the title **"ESPuino Flash Tool"** in white.
+  (`assets/logo.webp`, ~35 px) + the title **"ESPuino Firmware Tool"** in white.
 - **Buttons:** solid blue (primary action) / blue outline (secondary), modeled on ESPuino.
 - **Icons:** the few needed ones as inline SVG.
 - **Dropped:** the heartbeat indicator (top right) and the tab bar (the tool is

@@ -1,4 +1,4 @@
-// Central configuration for the ESPuino Flash Tool.
+// Central configuration for the ESPuino Firmware Tool.
 
 // Source of the ready-built firmwares (separate repo). Files are addressed by a git ref
 // (a build commit sha, or "main" for the latest) so a specific build can be flashed.

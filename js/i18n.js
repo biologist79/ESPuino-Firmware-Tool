@@ -2,7 +2,7 @@
 
 export const translations = {
   DE: {
-    "nav.title": "ESPuino Flash Tool",
+    "nav.title": "ESPuino Firmware Tool",
     "unsupported.title": "Browser nicht unterstützt",
     "unsupported.body":
       "Dieses Tool braucht die Web-Serial-Schnittstelle. Bitte öffne die Seite in <strong>Chrome</strong> oder <strong>Edge</strong> an einem <strong>Computer</strong> (nicht am Handy/Tablet, nicht in Firefox oder Safari).",
@@ -71,7 +71,7 @@ export const translations = {
     "msg.needFiles": "Bitte mindestens die App-Datei (firmware.bin) auswählen.",
   },
   EN: {
-    "nav.title": "ESPuino Flash Tool",
+    "nav.title": "ESPuino Firmware Tool",
     "unsupported.title": "Browser not supported",
     "unsupported.body":
       "This tool needs the Web Serial API. Please open it in <strong>Chrome</strong> or <strong>Edge</strong> on a <strong>computer</strong> (not on a phone/tablet, not in Firefox or Safari).",
@@ -140,7 +140,7 @@ export const translations = {
     "msg.needFiles": "Please select at least the app file (firmware.bin).",
   },
   FR: {
-    "nav.title": "ESPuino Flash Tool",
+    "nav.title": "ESPuino Firmware Tool",
     "unsupported.title": "Navigateur non pris en charge",
     "unsupported.body":
       "Cet outil nécessite l'API Web Serial. Ouvrez-le dans <strong>Chrome</strong> ou <strong>Edge</strong> sur un <strong>ordinateur</strong> (pas sur téléphone/tablette, ni Firefox ou Safari).",

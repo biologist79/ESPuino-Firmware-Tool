@@ -3,7 +3,7 @@
 ## boot_app0.bin
 
 Initial content of the `otadata` partition. It resets the OTA selection so the bootloader
-boots the first app slot (`ota_0`). The flash tool writes it in every mode so a freshly
+boots the first app slot (`ota_0`). The tool writes it in every mode so a freshly
 flashed app reliably takes effect (see `SPEC.md`).
 
 - **Source:** Espressif [arduino-esp32](https://github.com/espressif/arduino-esp32),

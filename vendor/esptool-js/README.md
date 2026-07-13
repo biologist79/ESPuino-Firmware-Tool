@@ -1,6 +1,6 @@
 # Vendored: esptool-js
 
-A local copy of [esptool-js](https://github.com/espressif/esptool-js) so the flash tool
+A local copy of [esptool-js](https://github.com/espressif/esptool-js) so the tool
 works without an external CDN dependency (offline-capable — it is meant as a "lifeline").
 
 - **esptool.js** — `esptool-js@0.6.0` (unmodified ESM bundle from jsDelivr). Exports
