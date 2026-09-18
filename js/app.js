@@ -56,6 +56,7 @@ const els = {};
   "btnErase",
   "customPanel",
   "consolePanel",
+  "progressCard",
   "progressBar",
   "status",
   "log",
@@ -88,6 +89,13 @@ function appendConsole(text) {
 }
 function setProgress(fraction) {
   els.progressBar.style.width = Math.max(0, Math.min(1, fraction)) * 100 + "%";
+}
+// The progress card -- bar, status line and log -- is the only place where a running action is
+// visible, and it sits below the action buttons. Anyone who doesn't know it is there clicks and
+// sees nothing happen, so the tool looks dead. Pull it into view whenever an action starts; the
+// console does the same for itself once the flash is through (showConsoleAfterFlash).
+function scrollToProgress() {
+  els.progressCard.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 function setBusy(b) {
   busy = b;
@@ -278,6 +286,7 @@ async function runFlash(mode) {
   setBusy(true);
   els.log.textContent = "";
   setProgress(0);
+  scrollToProgress(); // before ensurePortFree(), so the card is already up when the port dialog opens
   await ensurePortFree();
   // Reuse the one shared port (picked on the first action) so repeat flashes don't
   // re-prompt and don't trip the "requestPort needs a user gesture" rule after the
@@ -328,6 +337,7 @@ async function runErase() {
   setBusy(true);
   els.log.textContent = "";
   setProgress(0);
+  scrollToProgress(); // before ensurePortFree(), so the card is already up when the port dialog opens
   await ensurePortFree();
   // Reuse the one shared port (picked on the first action) so repeat flashes don't
   // re-prompt and don't trip the "requestPort needs a user gesture" rule after the
@@ -364,6 +374,7 @@ async function runCustom() {
   const appFile = $("fileApp").files[0];
   if (!appFile) {
     setStatus(t("msg.needFiles"), "error");
+    scrollToProgress(); // this message lands in the progress card too -- invisible without it
     return;
   }
   const parts = [
@@ -375,6 +386,7 @@ async function runCustom() {
   setBusy(true);
   els.log.textContent = "";
   setProgress(0);
+  scrollToProgress(); // before ensurePortFree(), so the card is already up when the port dialog opens
   await ensurePortFree();
   // Reuse the one shared port (picked on the first action) so repeat flashes don't
   // re-prompt and don't trip the "requestPort needs a user gesture" rule after the
